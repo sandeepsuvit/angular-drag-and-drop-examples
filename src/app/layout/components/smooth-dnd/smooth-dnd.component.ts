@@ -8,22 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmoothDndComponent implements OnInit {
   scene: any;
-  columns: Array<any> = [];
 
   constructor(
     private commonUtilsService: CommonUtilsService
   ) { }
 
   ngOnInit() {
-    this.scene = {
-      children: [
-        { id: 1, title: 'Backlogs', children: this.commonUtilsService.generateItems(20, i => ({ id: i, title: 'Backlogs - ' + i })) },
-        { id: 2, title: 'To do', children: this.commonUtilsService.generateItems(10, i => ({ id: i, title: 'To do - ' + i })) },
-        { id: 3, title: 'In Progress', children: this.commonUtilsService.generateItems(2, i => ({ id: i, title: 'In Progress - ' + i })) },
-        { id: 4, title: 'Done', children: this.commonUtilsService.generateItems(12, i => ({ id: i, title: 'Done - ' + i })) },
-        { id: 5, title: 'Deployment', children: [] }
-      ]
-    };
+    this.scene = this.commonUtilsService.getSmoothScrollData();
   }
 
   /**

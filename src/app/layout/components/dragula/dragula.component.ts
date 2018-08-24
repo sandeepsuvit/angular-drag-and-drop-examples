@@ -14,38 +14,7 @@ export class DragulaComponent implements OnInit, AfterViewInit, OnDestroy {
   subs = new Subscription();
   scollElemnts: any;
 
-  public groups: Array<any> = [
-    {
-      id: 1,
-      title: 'Backlogs',
-      items: this.commonUtilsService.generateItems(20, i => ({ id: i, title: 'Backlogs - ' + i }))
-    },
-    {
-      id: 2,
-      title: 'To Do',
-      items: this.commonUtilsService.generateItems(5, i => ({ id: i, title: 'To Do - ' + i }))
-    },
-    {
-      id: 3,
-      title: 'In Progress',
-      items: this.commonUtilsService.generateItems(2, i => ({ id: i, title: 'In Progress - ' + i }))
-    },
-    {
-      id: 4,
-      title: 'Review',
-      items: this.commonUtilsService.generateItems(6, i => ({ id: i, title: 'Review - ' + i }))
-    },
-    {
-      id: 5,
-      title: 'Done',
-      items: this.commonUtilsService.generateItems(8, i => ({ id: i, title: 'Done - ' + i }))
-    },
-    {
-      id: 6,
-      title: 'Deploy',
-      items: this.commonUtilsService.generateItems(1, i => ({ id: i, title: 'Deploy - ' + i }))
-    }
-  ];
+  columns: Array<any> = [];
 
   constructor(
     private dragulaService: DragulaService,
@@ -84,7 +53,9 @@ export class DragulaComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.columns = this.commonUtilsService.getDragulaData();
+  }
 
   ngAfterViewInit() {
     const columns = Array.from(this.elRef.nativeElement.querySelectorAll('.columns'));
