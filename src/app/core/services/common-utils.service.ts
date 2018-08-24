@@ -1,4 +1,3 @@
-import { Board } from './../models/board.model';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -48,41 +47,5 @@ export class CommonUtilsService {
     }
 
     return result;
-  }
-
-  /**
-   * generate sample data for dragula scroll
-   *
-   * @returns
-   * @memberof CommonUtilsService
-   */
-  getDragulaData(): Array<Board> {
-    return [
-      { id: 1, order: 1000, title: 'Backlogs', todos: this.generateItems(20, i => ({ id: i, order: i * 1000, title: 'Backlogs - ' + i })) },
-      { id: 2, order: 2000, title: 'To Do', todos: this.generateItems(5, i => ({ id: i, order: i * 1000, title: 'To Do - ' + i })) },
-      // tslint:disable-next-line:max-line-length
-      { id: 3, order: 3000, title: 'In Progress', todos: this.generateItems(2, i => ({ id: i, order: i * 1000, title: 'In Progress - ' + i })) },
-      { id: 4, order: 4000, title: 'Review', todos: this.generateItems(6, i => ({ id: i, order: i * 1000, title: 'Review - ' + i })) },
-      { id: 5, order: 5000, title: 'Done', todos: this.generateItems(8, i => ({ id: i, order: i * 1000, title: 'Done - ' + i })) },
-      { id: 6, order: 6000, title: 'Deploy', todos: this.generateItems(1, i => ({ id: i, order: i * 1000, title: 'Deploy - ' + i })) }
-    ];
-  }
-
-  /**
-   * Get data for smooth scroll
-   *
-   * @returns
-   * @memberof CommonUtilsService
-   */
-  getSmoothScrollData() {
-    return {
-      children: [
-        { id: 1, title: 'Backlogs', children: this.generateItems(20, i => ({ id: i, title: 'Backlogs - ' + i })) },
-        { id: 2, title: 'To do', children: this.generateItems(10, i => ({ id: i, title: 'To do - ' + i })) },
-        { id: 3, title: 'In Progress', children: this.generateItems(2, i => ({ id: i, title: 'In Progress - ' + i })) },
-        { id: 4, title: 'Done', children: this.generateItems(12, i => ({ id: i, title: 'Done - ' + i })) },
-        { id: 5, title: 'Deployment', children: [] }
-      ]
-    };
   }
 }

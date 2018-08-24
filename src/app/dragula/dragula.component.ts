@@ -2,11 +2,11 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit } from '@angula
 import { DragulaService } from 'ng2-dragula';
 import { Subscription } from 'rxjs';
 import { Board } from '../core/models/board.model';
-import { CommonUtilsService } from '../core/services/common-utils.service';
 import { DataService } from '../core/services/data.service';
 
 // Used for autoscrolling
 const autoScroll = require('dom-autoscroller');
+
 @Component({
   selector: 'app-dragula',
   templateUrl: './dragula.component.html',
@@ -25,7 +25,6 @@ export class DragulaComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private dragulaService: DragulaService,
     private elRef: ElementRef,
-    private commonUtilsService: CommonUtilsService,
     private dataService: DataService
   ) {
     this.dragulaService.createGroup('COLUMNS', {
@@ -81,7 +80,7 @@ export class DragulaComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.board = this.commonUtilsService.getDragulaData();
+    this.board = this.dataService.getDragulaData();
   }
 
   ngAfterViewInit() {

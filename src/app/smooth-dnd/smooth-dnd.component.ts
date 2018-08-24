@@ -1,3 +1,4 @@
+import { DataService } from './../core/services/data.service';
 import { CommonUtilsService } from '../core/services/common-utils.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,11 +11,12 @@ export class SmoothDndComponent implements OnInit {
   scene: any;
 
   constructor(
-    private commonUtilsService: CommonUtilsService
+    private commonUtilsService: CommonUtilsService,
+    private dataService: DataService
   ) { }
 
   ngOnInit() {
-    this.scene = this.commonUtilsService.getSmoothScrollData();
+    this.scene = this.dataService.getSmoothScrollData();
   }
 
   /**
