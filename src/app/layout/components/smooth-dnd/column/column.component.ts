@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CommonUtilsService } from './../../../../core/services/common-utils.service';
 
 @Component({
   selector: 'app-column',
@@ -9,52 +10,53 @@ export class ColumnComponent implements OnInit {
   @Input() column;
   @Input() scene;
 
-  constructor() { }
+  constructor(
+    private commonUtilsService: CommonUtilsService
+  ) { }
 
   ngOnInit() {
   }
 
-
-  onCardDrop(columnId, dropResult) {
+  /**
+   * Function called after card drop
+   *
+   * @param {*} columnId
+   * @param {*} dropResult
+   * @memberof ColumnComponent
+   */
+  onCardDrop(columnId: any, dropResult: any) {
     if (dropResult.removedIndex !== null || dropResult.addedIndex !== null) {
       const scene = Object.assign({}, this.scene);
       const column = scene.children.filter(p => p.id === columnId)[0];
       const columnIndex = scene.children.indexOf(column);
 
       const newColumn = Object.assign({}, column);
-      newColumn.children = this.applyDrag(newColumn.children, dropResult);
+      newColumn.children = this.commonUtilsService.applyDrag(newColumn.children, dropResult);
       scene.children.splice(columnIndex, 1, newColumn);
 
       this.scene = scene;
     }
   }
 
-  getCardPayload(columnId) {
+  /**
+   * Function called when card dragged
+   *
+   * @param {*} columnId
+   * @returns
+   * @memberof ColumnComponent
+   */
+  getCardPayload(columnId: any) {
     return (index) => {
       return this.scene.children.filter(p => p.id === columnId)[0].children[index];
     };
   }
 
-  applyDrag(arr, dragResult) {
-    const { removedIndex, addedIndex, payload } = dragResult;
-    if (removedIndex === null && addedIndex === null) {
-      return arr;
-    }
-
-    const result = [...arr];
-    let itemToAdd = payload;
-
-    if (removedIndex !== null) {
-      itemToAdd = result.splice(removedIndex, 1)[0];
-    }
-
-    if (addedIndex !== null) {
-      result.splice(addedIndex, 0, itemToAdd);
-    }
-
-    return result;
-  }
-
+  /**
+   * Function to log all events fired
+   *
+   * @param {*} params
+   * @memberof ColumnComponent
+   */
   log(...params) {
     console.log(...params);
   }

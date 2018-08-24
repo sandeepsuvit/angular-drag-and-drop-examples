@@ -1,11 +1,11 @@
-<div class="mt-2 mb-2 title d-flex justify-content-between">
-    <h5>Boards using ngx-smooth-dnd</h5>
+<div class="mt-2 mb-2 title d-flex align-items-center justify-content-between">
+    <h5 class="mb-0">Boards using ngx-smooth-dnd</h5>
     <a routerLink="/dragula" class="btn btn-sm btn-info pl-3 pr-3 text-bold">Dragula board</a>
 </div>
 <div class="scene">
     <smooth-dnd-container [orientation]="'horizontal'" class="columns" (drop)="onColumnDrop($event)" [dragHandleSelector]="'.column-drag-handle'">
-        <smooth-dnd-draggable *ngFor="let column of scene.children">
-            <app-column [column]="column" [scene]="scene"></app-column>
+        <smooth-dnd-draggable *ngFor="let column of scene.children; let last = last">
+            <app-column [column]="column" [scene]="scene" [class.last-item]="last"></app-column>
         </smooth-dnd-draggable>
     </smooth-dnd-container>
 </div>

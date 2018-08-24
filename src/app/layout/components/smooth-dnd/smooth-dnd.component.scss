@@ -3,3 +3,13 @@
 @import "./src/assets/styles/imports";
 
 /* Custom styles */
+
+ :host ::ng-deep {
+    .smooth-dnd-container {
+        &.horizontal {
+            overflow-x: auto;
+            // height: calc(100vh - 3.5rem);
+            @include scrollbar();
+        }
+    }
+}

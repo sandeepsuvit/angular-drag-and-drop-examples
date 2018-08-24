@@ -10,6 +10,7 @@ import { ColumnComponent } from './components/smooth-dnd/column/column.component
 import { SmoothDndComponent } from './components/smooth-dnd/smooth-dnd.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
+import { SortableComponent } from './components/sortable/sortable.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { LayoutComponent } from './layout.component';
     ItemComponent,
     SmoothDndComponent,
     ColumnComponent,
-    CardComponent
+    CardComponent,
+    SortableComponent
   ]
 })
 export class LayoutModule { }

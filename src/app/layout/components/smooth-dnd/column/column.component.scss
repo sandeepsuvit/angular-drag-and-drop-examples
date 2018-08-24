@@ -4,12 +4,8 @@
 
 /* Custom styles */
 
-::ng-deep {
+:host ::ng-deep {
     .smooth-dnd-container {
-        &.horizontal {
-            overflow-x: auto;
-            height: calc(100vh - 3.5rem);
-        }
         &.vertical {
             background: #e0e4e8;
             padding: 0.5rem 0.2rem 0rem;
@@ -19,6 +15,15 @@
             max-height: calc(100vh - 10rem);
             margin-bottom: 1rem;
             border-radius: 0.2rem;
+            @include scrollbar();
+        }
+    }
+}
+
+:host {
+    &.last-item {
+        .column {
+            margin-right: 0;
         }
     }
 }

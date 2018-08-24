@@ -8,6 +8,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxSmoothDnDModule } from 'ngx-smooth-dnd';
+import { CommonUtilsService } from './services/common-utils.service';
 
 @NgModule({
   imports: [
@@ -33,6 +34,9 @@ import { NgxSmoothDnDModule } from 'ngx-smooth-dnd';
     NgxSmoothDnDModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    CommonUtilsService
   ]
 })
 export class CoreModule { }

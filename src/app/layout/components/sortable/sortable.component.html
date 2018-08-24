@@ -1,0 +1,17 @@
+<div class="mt-2 mb-2 title d-flex align-items-center justify-content-between">
+    <h5 class="mb-0">Sortable</h5>
+    <a routerLink="/smooth-dnd" class="btn btn-sm btn-info pl-3 pr-3 text-bold">Ngx Smooth dnd board</a>
+</div>
+<div>
+    <div class="simple-page-scroller">
+        <smooth-dnd-container (drop)="onDrop($event)">
+            <smooth-dnd-draggable *ngFor="let item of items">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        {{item.data}}
+                    </div>
+                </div>
+            </smooth-dnd-draggable>
+        </smooth-dnd-container>
+    </div>
+</div>
