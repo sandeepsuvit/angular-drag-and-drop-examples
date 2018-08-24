@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DragulaComponent } from './components/dragula/dragula.component';
 import { SmoothDndComponent } from './components/smooth-dnd/smooth-dnd.component';
 import { LayoutComponent } from './layout.component';
-import { DragulaComponent } from './components/dragula/dragula.component';
 
 const routes: Routes = [
   {

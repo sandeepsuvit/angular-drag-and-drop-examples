@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgxDnDModule } from '@swimlane/ngx-dnd';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxDnDModule } from '@swimlane/ngx-dnd';
 import { NgxSmoothDnDModule } from 'ngx-smooth-dnd';
 
 @NgModule({
