@@ -1,4 +1,4 @@
-# AngularBootstrapBoilerplate
+# Angular drag and drop example with dragula and ngx-smooth-dnd
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
