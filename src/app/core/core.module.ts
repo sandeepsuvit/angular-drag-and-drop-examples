@@ -11,6 +11,7 @@ import { NgxSmoothDnDModule } from 'ngx-smooth-dnd';
 import { DragulaModule } from 'ng2-dragula';
 import { CommonUtilsService } from './services/common-utils.service';
 import { AutosizeModule } from 'ngx-autosize';
+import { DataService } from './services/data.service';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { AutosizeModule } from 'ngx-autosize';
     ReactiveFormsModule
   ],
   providers: [
-    CommonUtilsService
+    CommonUtilsService,
+    DataService
   ]
 })
 export class CoreModule { }

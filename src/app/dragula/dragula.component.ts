@@ -1,8 +1,9 @@
-import { CommonUtilsService } from './../../../core/services/common-utils.service';
-import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
-import { Board } from '../../../core/models/board.model';
+import { Subscription } from 'rxjs';
+import { Board } from '../core/models/board.model';
+import { CommonUtilsService } from '../core/services/common-utils.service';
+import { DataService } from '../core/services/data.service';
 
 // Used for autoscrolling
 const autoScroll = require('dom-autoscroller');
@@ -24,7 +25,8 @@ export class DragulaComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private dragulaService: DragulaService,
     private elRef: ElementRef,
-    private commonUtilsService: CommonUtilsService
+    private commonUtilsService: CommonUtilsService,
+    private dataService: DataService
   ) {
     this.dragulaService.createGroup('COLUMNS', {
       direction: 'horizontal',
@@ -37,23 +39,43 @@ export class DragulaComponent implements OnInit, AfterViewInit, OnDestroy {
     });
 
     // Dropping columns
-    this.subs.add(this.dragulaService.dropModel('COLUMNS')
-      .subscribe(({ sourceModel, targetModel, item }) => {
-        console.log(sourceModel);
-        console.log(targetModel);
-        console.log(item);
+    this.subs.add(this.dragulaService.dropModel('COLUMNS').subscribe((args: any) => {
+        const { name, el, target, source, sourceModel, targetModel, item } = args;
+
+        const updatedOrder = targetModel.map((data, index) => {
+          index = (index + 1) * 1000;
+          return { id: data.id, order: index };
+        });
+
+        const reqData = {
+          columns: updatedOrder
+        };
+
+        console.log(reqData);
+        this.board = this.dataService.updateDragulaColumnOrder(reqData);
       })
     );
 
     // Dropping cards
     this.subs.add(this.dragulaService.dropModel('CARDS')
       .subscribe((args: any) => {
-        const { name, el, target, source, sibling, sourceModel, targetModel, item } = args;
-
+        const { name, el, target, source, sourceModel, targetModel, item } = args;
         const s_dataset = source['dataset'] as DOMStringMap;
         const t_dataset = target['dataset'] as DOMStringMap;
-        console.log(s_dataset.id);
-        console.log(t_dataset.id);
+
+        const updatedOrder = targetModel.map((data, index) => {
+          index = (index + 1) * 1000;
+          return { id: data.id, name: data.title, order: index };
+        });
+
+        const reqData = {
+          sourceColumn: s_dataset.id, // source column
+          targetColumn: t_dataset.id, // target column
+          cards: updatedOrder,
+          targetCard: item
+        };
+
+        console.log(reqData);
       })
     );
   }

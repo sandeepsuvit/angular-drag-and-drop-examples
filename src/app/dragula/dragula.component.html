@@ -16,7 +16,7 @@
         <div class="cards-dummy">
             <div *ngFor="let d of [1,2,3]"></div>
         </div>
-        <div #cardsCnt class="cards" dragula="CARDS" [(dragulaModel)]="column.todos" [attr.data-id]="column.title">
+        <div #cardsCnt class="cards" dragula="CARDS" [(dragulaModel)]="column.todos" [attr.data-id]="column.id">
             <div class="card" *ngFor="let item of column.todos">{{item.title}}</div>
         </div>
         <!-- Add new card -->

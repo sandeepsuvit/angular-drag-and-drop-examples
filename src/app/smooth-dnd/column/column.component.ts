@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, ElementRef, AfterViewInit } from '@angular/core';
-import { CommonUtilsService } from './../../../../core/services/common-utils.service';
+import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
+import { CommonUtilsService } from '../../core/services/common-utils.service';
 
 @Component({
   selector: 'app-column',

@@ -1,4 +1,4 @@
-import { CommonUtilsService } from './../../../core/services/common-utils.service';
+import { CommonUtilsService } from '../core/services/common-utils.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
