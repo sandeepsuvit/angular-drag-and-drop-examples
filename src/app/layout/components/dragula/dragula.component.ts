@@ -2,6 +2,7 @@ import { CommonUtilsService } from './../../../core/services/common-utils.servic
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DragulaService } from 'ng2-dragula';
+import { Board } from '../../../core/models/board.model';
 
 // Used for autoscrolling
 const autoScroll = require('dom-autoscroller');
@@ -14,7 +15,11 @@ export class DragulaComponent implements OnInit, AfterViewInit, OnDestroy {
   subs = new Subscription();
   scollElemnts: any;
 
-  columns: Array<any> = [];
+  board: Array<Board> = [];
+
+  // All elements
+  columns: any;
+  cards: any;
 
   constructor(
     private dragulaService: DragulaService,
@@ -54,14 +59,33 @@ export class DragulaComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.columns = this.commonUtilsService.getDragulaData();
+    this.board = this.commonUtilsService.getDragulaData();
   }
 
   ngAfterViewInit() {
-    const columns = Array.from(this.elRef.nativeElement.querySelectorAll('.columns'));
-    const cards = Array.from(this.elRef.nativeElement.querySelectorAll('.cards'));
+    setTimeout(() => { this.initializeScroll(); }, 500);
+  }
+
+  ngOnDestroy() {
+    // Required to remove any autoscroll items else will drop frames
+    if (this.scollElemnts) {
+      this.scollElemnts.destroy(true);
+    }
+    // destroy all the subscriptions at once
+    this.subs.unsubscribe();
+    this.dragulaService.destroy('COLUMNS');
+  }
+
+  /**
+   * Function to initalize scroll on the elements
+   *
+   * @memberof BoardDetailsComponent
+   */
+  initializeScroll() {
+    this.columns = Array.from(this.elRef.nativeElement.querySelectorAll('.columns'));
+    this.cards = Array.from(this.elRef.nativeElement.querySelectorAll('.cards'));
     // Enable autoscrolling
-    this.scollElemnts = autoScroll([...columns, ...cards], {
+    this.scollElemnts = autoScroll([...this.columns, ...this.cards], {
       margin: 100,
       maxSpeed: 30,
       scrollWhenOutside: false,
@@ -72,11 +96,45 @@ export class DragulaComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
-    // Required to remove any autoscroll items else will drop frames
-    this.scollElemnts.destroy(true);
-    // destroy all the subscriptions at once
-    this.subs.unsubscribe();
-    this.dragulaService.destroy('COLUMNS');
+  /**
+   * Function to reinitialize the scrolling
+   *
+   * @memberof DragulaComponent
+   */
+  private resetScroll() {
+    // Remove all old elements
+    [...this.columns, ...this.cards].forEach(el => this.scollElemnts.remove(el));
+    // Get all new columns
+    this.columns = Array.from(this.elRef.nativeElement.querySelectorAll('.columns'));
+    // Get all new cards
+    this.cards = Array.from(this.elRef.nativeElement.querySelectorAll('.cards'));
+    // Re-attach new elements
+    [...this.columns, ...this.cards].forEach(el => this.scollElemnts.add(el));
+  }
+
+  /**
+   * Event handler when a new card is added
+   *
+   * @param {*} event
+   * @memberof DragulaComponent
+   */
+  onAddCardEvent(event: any) {
+    console.log(event);
+    const columnIdx = this.board.findIndex(column => column.id === event.column);
+    this.board[columnIdx].todos.push(event);
+    this.resetScroll();
+  }
+
+  /**
+   * Event handler when column title is updated
+   *
+   * @param {*} event
+   * @memberof DragulaComponent
+   */
+  onEditColumnTitleEvent(event: any) {
+    console.log(event);
+    const columnIdx = this.board.findIndex(column => column.id === event.column);
+    this.board[columnIdx].title = event.title;
+    this.resetScroll();
   }
 }

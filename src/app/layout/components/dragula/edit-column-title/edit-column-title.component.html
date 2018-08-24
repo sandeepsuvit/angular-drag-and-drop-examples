@@ -1,0 +1,8 @@
+<h5 class="column-title d-flex align-items-center" *ngIf="editingTitle ? false : true" (click)="enableEditTitle()">
+    <span class="group-handle">&#x2630;</span>
+    <span>{{column.title}}</span>
+</h5>
+<!-- Form to show when clicked on text -->
+<div class="form-group mb-0 p-3" *ngIf="editingTitle ? true : false">
+    <input #editTitleField type="text" class="form-control input-sm" placeholder="Enter column title..." (keyup)="editTitleOnEnter($event)" (blur)="editTitleOnBlur()" [(ngModel)]="editTitleText">
+</div>

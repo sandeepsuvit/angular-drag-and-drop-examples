@@ -11,6 +11,8 @@ import { SmoothDndComponent } from './components/smooth-dnd/smooth-dnd.component
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { SortableComponent } from './components/sortable/sortable.component';
+import { AddCardComponent } from './components/dragula/add-card/add-card.component';
+import { EditColumnTitleComponent } from './components/dragula/edit-column-title/edit-column-title.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { SortableComponent } from './components/sortable/sortable.component';
     SmoothDndComponent,
     ColumnComponent,
     CardComponent,
-    SortableComponent
+    SortableComponent,
+    AddCardComponent,
+    EditColumnTitleComponent
   ]
 })
 export class LayoutModule { }

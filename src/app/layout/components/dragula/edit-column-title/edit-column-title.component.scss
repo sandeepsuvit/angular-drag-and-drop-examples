@@ -1,0 +1,22 @@
+/* Global imports */
+
+@import "./src/assets/styles/imports";
+
+/* Custom styles */
+
+.column-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+    padding: 1rem;
+    margin-bottom: 0;
+    .group-handle {
+        cursor: grab;
+        color: #abaeb1;
+        padding-right: 1rem;
+        transition: all 0.1s ease-in;
+        &:hover {
+            color: currentColor;
+        }
+    }
+}

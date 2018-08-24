@@ -1,3 +1,4 @@
+import { Board } from './../models/board.model';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -55,7 +56,7 @@ export class CommonUtilsService {
    * @returns
    * @memberof CommonUtilsService
    */
-  getDragulaData() {
+  getDragulaData(): Array<Board> {
     return [
       { id: 1, title: 'Backlogs', todos: this.generateItems(20, i => ({ id: i, title: 'Backlogs - ' + i })) },
       { id: 2, title: 'To Do', todos: this.generateItems(5, i => ({ id: i, title: 'To Do - ' + i })) },

@@ -28,9 +28,11 @@
         "dom-autoscroller": "^2.3.4",
         "font-awesome": "^4.7.0",
         "ng2-dragula": "^2.0.2",
+        "ngx-autosize": "^1.1.3",
         "ngx-bootstrap": "^3.0.0",
         "ngx-smooth-dnd": "^0.2.6",
         "rxjs": "^6.0.0",
+        "rxjs-compat": "^6.2.2",
         "zone.js": "^0.8.26"
     },
     "devDependencies": {

@@ -4,6 +4,13 @@
 
 /* Custom styles */
 
+.feather {
+    width: 1rem;
+    height: 1rem;
+    stroke-width: 3;
+    vertical-align: sub;
+}
+
 .columns {
     display: flex;
     align-items: start;
@@ -20,22 +27,6 @@
         overflow: hidden;
         &:last-of-type {
             margin-right: 0;
-        }
-        .column-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #333;
-            padding: 1rem;
-            margin-bottom: 0;
-            .group-handle {
-                cursor: grab;
-                color: #999;
-                padding-right: 0.5rem;
-                transition: all 0.1s ease-in;
-                &:hover {
-                    color: #333;
-                }
-            }
         }
         // Used while dragging
         .cards-dummy {
@@ -123,13 +114,6 @@
         background: #e9ecef;
         border-radius: 0.2rem;
         padding: 0;
-        .column-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #333;
-            padding: 1rem;
-            margin-bottom: 0;
-        }
         // Used while dragging
         .cards-dummy {
             display: block;

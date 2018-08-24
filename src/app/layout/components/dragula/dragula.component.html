@@ -1,19 +1,25 @@
 <div class="mt-2 mb-2 title d-flex align-items-center justify-content-between">
     <h5 class="mb-0">Boards using Dragula</h5>
-    <a routerLink="/smooth-dnd" class="btn btn-sm btn-info pl-3 pr-3 text-bold">Ngx Smooth dnd board</a>
+    <div class="controls">
+        <!-- <button class="btn btn-sm btn-success pl-2 pr-2 mr-3">
+            <svg class="feather">
+                <use [attr.xlink:href]="'/assets/feather-sprite.svg#plus'" />
+            </svg>
+        </button> -->
+        <a routerLink="/smooth-dnd" class="btn btn-sm btn-info pl-3 pr-3 text-bold">Ngx Smooth dnd board</a>
+    </div>
 </div>
 
-<section class="columns noselect" dragula="COLUMNS" [(dragulaModel)]="columns">
-    <div class="column" *ngFor="let column of columns">
-        <h5 class="column-title">
-            <span class="group-handle">&#x2630;</span> {{column.title}}
-        </h5>
+<section class="columns noselect" dragula="COLUMNS" [(dragulaModel)]="board">
+    <div class="column" *ngFor="let column of board">
+        <app-edit-column-title [column]="column" (columnEvent)="onEditColumnTitleEvent($event)"></app-edit-column-title>
         <div class="cards-dummy">
             <div *ngFor="let d of [1,2,3]"></div>
         </div>
-        <div class="cards" dragula="CARDS" [(dragulaModel)]="column.todos" [attr.data-id]="column.title">
+        <div #cardsCnt class="cards" dragula="CARDS" [(dragulaModel)]="column.todos" [attr.data-id]="column.title">
             <div class="card" *ngFor="let item of column.todos">{{item.title}}</div>
         </div>
-        <div class="add-card">Add a card...</div>
+        <!-- Add new card -->
+        <app-add-card [selectedColumn]="column" [selectedCardsCnt]="cardsCnt" (cardEvent)="onAddCardEvent($event)"></app-add-card>
     </div>
 </section>

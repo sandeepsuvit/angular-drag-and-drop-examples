@@ -1,0 +1,13 @@
+<div class="add-card-cnt" (click)="enableAddCard()">
+    <!-- Text to display -->
+    <div class="add-card" *ngIf="addingCard ? false : true">Add a card...</div>
+</div>
+
+<!-- Form to show when clicked on text -->
+<div class="add-card-frm" *ngIf="addingCard ? true : false">
+    <div class="card mb-2">
+        <div class="card-body">
+            <textarea #addCardField autosize class="no-resize" [minRows]="2" placeholder="Enter card details..." (keyup)="addCardOnEnter($event)" (blur)="addCardOnBlur()" [(ngModel)]="addCardText"></textarea>
+        </div>
+    </div>
+</div>

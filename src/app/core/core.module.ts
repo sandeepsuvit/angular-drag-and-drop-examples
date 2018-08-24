@@ -10,6 +10,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxSmoothDnDModule } from 'ngx-smooth-dnd';
 import { DragulaModule } from 'ng2-dragula';
 import { CommonUtilsService } from './services/common-utils.service';
+import { AutosizeModule } from 'ngx-autosize';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { CommonUtilsService } from './services/common-utils.service';
     NgxDnDModule,
     NgxSmoothDnDModule,
     DragulaModule.forRoot(),
+    AutosizeModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -35,6 +37,7 @@ import { CommonUtilsService } from './services/common-utils.service';
     NgxDnDModule,
     NgxSmoothDnDModule,
     DragulaModule,
+    AutosizeModule,
     FormsModule,
     ReactiveFormsModule
   ],
