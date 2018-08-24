@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmoothDndComponent implements OnInit {
   scene: any;
+  columns: Array<any> = [];
 
   constructor(
     private commonUtilsService: CommonUtilsService

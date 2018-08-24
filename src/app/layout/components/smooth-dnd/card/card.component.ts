@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -12,5 +12,4 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

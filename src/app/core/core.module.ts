@@ -8,6 +8,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxSmoothDnDModule } from 'ngx-smooth-dnd';
+import { DragulaModule } from 'ng2-dragula';
 import { CommonUtilsService } from './services/common-utils.service';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { CommonUtilsService } from './services/common-utils.service';
     CarouselModule.forRoot(),
     NgxDnDModule,
     NgxSmoothDnDModule,
+    DragulaModule.forRoot(),
     FormsModule,
     ReactiveFormsModule
   ],
@@ -32,6 +34,7 @@ import { CommonUtilsService } from './services/common-utils.service';
     CarouselModule,
     NgxDnDModule,
     NgxSmoothDnDModule,
+    DragulaModule,
     FormsModule,
     ReactiveFormsModule
   ],

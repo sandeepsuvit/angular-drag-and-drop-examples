@@ -40,7 +40,7 @@
     margin-bottom: 1rem;
     .column-drag-handle {
         cursor: grab;
-        padding: 1rem;
+        padding: 0.5rem 1rem;
         color: #999;
         transition: all 0.1s ease-in;
         &:hover {

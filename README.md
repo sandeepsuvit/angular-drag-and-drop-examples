@@ -1,6 +1,7 @@
 # Angular drag and drop example with dragula and ngx-smooth-dnd
 
-![Alt text](samples/application.png?raw=true "Application")
+![Alt text](samples/smooth-dnd.png?raw=true "Smooth dnd scroll")
+![Alt text](samples/dragula.png?raw=true "Dragula scroll")
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 

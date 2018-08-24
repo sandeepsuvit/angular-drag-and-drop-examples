@@ -2,3 +2,18 @@
     <h5 class="mb-0">Boards using Dragula</h5>
     <a routerLink="/smooth-dnd" class="btn btn-sm btn-info pl-3 pr-3 text-bold">Ngx Smooth dnd board</a>
 </div>
+
+<section class="columns noselect" dragula="COLUMNS" [(dragulaModel)]="groups">
+    <div class="column" *ngFor="let group of groups">
+        <h5 class="column-title">
+            <span class="group-handle">&#x2630;</span> {{group.title}}
+        </h5>
+        <div class="cards-dummy">
+            <div *ngFor="let d of [1,2,3]"></div>
+        </div>
+        <div class="cards" dragula="CARDS" [(dragulaModel)]="group.items" [attr.data-id]="group.title">
+            <div class="card" *ngFor="let item of group.items">{{item.title}}</div>
+        </div>
+        <div class="add-card">Add a card...</div>
+    </div>
+</section>

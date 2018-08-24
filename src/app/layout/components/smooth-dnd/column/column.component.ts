@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonUtilsService } from './../../../../core/services/common-utils.service';
 
 @Component({
@@ -6,15 +6,21 @@ import { CommonUtilsService } from './../../../../core/services/common-utils.ser
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.scss']
 })
-export class ColumnComponent implements OnInit {
+export class ColumnComponent implements OnInit, AfterViewInit {
   @Input() column;
   @Input() scene;
 
+  colHeight: any;
+
   constructor(
-    private commonUtilsService: CommonUtilsService
+    private commonUtilsService: CommonUtilsService,
+    private elRef: ElementRef
   ) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
   }
 
   /**
@@ -25,17 +31,24 @@ export class ColumnComponent implements OnInit {
    * @memberof ColumnComponent
    */
   onCardDrop(columnId: any, dropResult: any) {
+    const { removedIndex, addedIndex, payload, droppedElement } = dropResult;
     if (dropResult.removedIndex !== null || dropResult.addedIndex !== null) {
       const scene = Object.assign({}, this.scene);
       const column = scene.children.filter(p => p.id === columnId)[0];
       const columnIndex = scene.children.indexOf(column);
-
       const newColumn = Object.assign({}, column);
       newColumn.children = this.commonUtilsService.applyDrag(newColumn.children, dropResult);
       scene.children.splice(columnIndex, 1, newColumn);
-
       this.scene = scene;
     }
+  }
+
+  onDragStart(event) {
+    // console.log(event);
+  }
+
+  onDragEnd(event) {
+    // console.log(event);
   }
 
   /**
