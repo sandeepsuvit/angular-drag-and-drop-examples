@@ -18,7 +18,7 @@ export class DragulaComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       id: 1,
       title: 'Backlogs',
-      items: this.commonUtilsService.generateItems(10, i => ({ id: i, title: 'Backlogs - ' + i }))
+      items: this.commonUtilsService.generateItems(20, i => ({ id: i, title: 'Backlogs - ' + i }))
     },
     {
       id: 2,

@@ -1,4 +1,4 @@
-# Angular drag and drop example with dragula and ngx-smooth-dnd
+# Angular 5+ drag and drop example with dragula and ngx-smooth-dnd
 
 ![Alt text](samples/smooth-dnd.png?raw=true "Smooth dnd scroll")
 ![Alt text](samples/dragula.png?raw=true "Dragula scroll")
