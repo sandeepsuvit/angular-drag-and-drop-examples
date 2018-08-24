@@ -1,0 +1,16 @@
+/* -------------------------------------------------------------------------- */
+
+// Bootstrap includes
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+/* -------------------------------------------------------------------------- */
+
+// Customized variables
+@import "./src/assets/styles/includes/variables";
+
+/* -------------------------------------------------------------------------- */
+
+// Utility classes
+@import "./src/assets/styles/mixins/commons";

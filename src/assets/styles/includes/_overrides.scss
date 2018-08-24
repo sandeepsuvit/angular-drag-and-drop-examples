@@ -1,0 +1,36 @@
+@import "./assets/styles/mixins/commons";
+
+/* -------------------------------------------------------------------------- */
+
+// Global
+* {
+    &:active,
+     :focus {
+        outline: none !important;
+    }
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+// For using feather icons
+.feather {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    vertical-align: middle;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+// Form 
+.form-control {
+    &::placeholder {
+        color: #ccc;
+    }
+}

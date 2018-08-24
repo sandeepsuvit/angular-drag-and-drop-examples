@@ -1,0 +1,13 @@
+<div class="column">
+    <div class="d-flex align-items-center">
+        <span class="column-drag-handle">&#x2630;</span>
+        <h5 class="column-title group-handle">{{column.title}}</h5>
+    </div>
+
+    <smooth-dnd-container [groupName]="'col'" (drop)="onCardDrop(column.id, $event)" [getChildPayload]="getCardPayload(column.id)" [dragClass]="'card-ghost'" [dropClass]="'card-ghost-drop'" (dragStart)="log('drag start', $event)" (dragEnd)="log('drag end', $event)">
+        <smooth-dnd-draggable *ngFor="let card of column.children">
+            <app-card [card]="card"></app-card>
+        </smooth-dnd-draggable>
+    </smooth-dnd-container>
+
+</div>

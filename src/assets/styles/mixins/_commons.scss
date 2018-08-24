@@ -1,0 +1,112 @@
+/** Mixin to rotate the div to a particular angle **/
+
+@mixin rotate-elem($angle) {
+    -webkit-transform: rotate($angle);
+    -moz-transform: rotate($angle);
+    -o-transform: rotate($angle);
+    -ms-transform: rotate($angle);
+    transform: rotate($angle);
+}
+
+
+/** Scale element in x and y axis **/
+
+@mixin scale-elem($x, $y) {
+    -ms-transform: scale($x, $y);
+    /* IE 9 */
+    -webkit-transform: scale($x, $y);
+    /* Safari */
+    transform: scale($x, $y);
+}
+
+
+/** Scale element in both axis **/
+
+@mixin scale-elem-all($xy) {
+    -ms-transform: scale($xy);
+    /* IE 9 */
+    -webkit-transform: scale($xy);
+    /* Safari */
+    transform: scale($xy);
+}
+
+
+/** Border shadow all sides **/
+
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+
+/** Border radius all sides **/
+
+@mixin border-radius($radius: 2px) {
+    @include border-top-radius($radius);
+    @include border-right-radius($radius);
+    @include border-bottom-radius($radius);
+    @include border-left-radius($radius);
+}
+
+
+/** Link variants **/
+
+@mixin link-variant($color) {
+    color: $color;
+    transition: all ease 0.35s;
+    &:focus,
+    &.focus,
+    &:hover,
+    &:active {
+        color: darken($color, 20%);
+    }
+}
+
+
+/** Link variants **/
+
+@mixin text-gradient($start: #f36e47, $end: #ef3777) {
+    background: -webkit-linear-gradient(45deg, $start, $end);
+    background: linear-gradient(45deg, $start, $end);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin bg-gradient($start: #f36e47, $end: #ef3777) {
+    background: -webkit-linear-gradient(45deg, $start, $end);
+    background: linear-gradient(45deg, $start, $end);
+}
+
+@mixin fill-gradient($start: #f36e47, $end: #ef3777) {
+    fill: -webkit-linear-gradient(45deg, $start, $end);
+    fill: linear-gradient(45deg, $start, $end);
+}
+
+@mixin stretchy() {
+    flex: 1 1 auto;
+}
+
+
+/** Custom scrollbar **/
+
+@mixin scrollbar {
+    /* width */
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 0.2rem;
+    }
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #aaa;
+    }
+}

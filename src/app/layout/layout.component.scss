@@ -1,0 +1,22 @@
+/* Global imports */
+
+@import "./src/assets/styles/imports";
+
+/* Custom styles */
+
+
+/* Lists */
+
+.columns {
+    display: flex;
+    align-items: start;
+    overflow-x: auto;
+    height: calc(100vh - 8.5rem);
+    app-column {
+        margin-right: 1rem;
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+    @include scrollbar();
+}

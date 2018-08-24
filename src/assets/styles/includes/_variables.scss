@@ -1,0 +1,49 @@
+/* -------------------------------------------------------------------------- */
+
+//Font that will be used throughout.
+$font-family-sans-serif: "Nunito",
+sans-serif !default;
+$font-family-serif: "Nunito",
+serif !default;
+$font-family-base: $font-family-sans-serif !default;
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$link-hover-decoration: none; // remove underline from button links
+// font-awesome to identify font location
+$fa-font-path: "~font-awesome/fonts" !default;
+// To enable bootstrap gradients
+// $enable-gradients: true;
+
+/* -------------------------------------------------------------------------- */
+
+// Colors
+$grapefruit: #ED5565;
+$white: #fff;
+$grass: #A0d468;
+$green: #5cb85c;
+$sunflower: #FFCE54;
+$aqua: #2196f3;
+$mint: #48CFAD;
+$grey: #B3B3B3;
+$skyblue: #0AB2FF;
+$light-blue: #499df3;
+$table-border-color: lighten($grey, 25%);
+
+/* -------------------------------------------------------------------------- */
+
+// Theme colors 
+$theme-colors: ( "primary": $aqua, "info": $light-blue, "success": $green, "warning": $sunflower, "danger": $grapefruit);
+$dropdown-border-color: #f3f3f3;
+
+/* -------------------------------------------------------------------------- */
+
+// This variable affects the `.h-*` and `.w-*` classes
+$sizes: () !default;
+$sizes: map-merge(( 25: 25%, 35: 35%, 45: 45%, 50: 50%, 75: 75%, 80: 80%, 100: 100%, auto: auto), $sizes);
+
+/* -------------------------------------------------------------------------- */
+
+// Grid variables
+// $grid-columns: 12 !default;
+// $grid-gutter-width: 30px !default;
+// $grid-breakpoints: ( xs: 0, sm: 480px, md: 768px, lg: 1024px);
+// $container-max-widths: ( sm: 420px, md: 720px, lg: 840px);

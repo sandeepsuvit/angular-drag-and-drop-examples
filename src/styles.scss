@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./assets/styles/includes/variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~font-awesome/scss/font-awesome";
+@import "@swimlane/ngx-dnd/release/index.css";
+@import "./assets/styles/includes/overrides";
+@import "./assets/styles/includes/utils";
+@import "./assets/styles/layout";
