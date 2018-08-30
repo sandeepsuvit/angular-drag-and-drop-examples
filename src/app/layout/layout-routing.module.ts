@@ -13,7 +13,7 @@ const routes: Routes = [
       { path: 'smooth-dnd', loadChildren: () => SmoothDndModule },
       { path: 'dragula', loadChildren: () => DragulaModule },
       { path: 'sortable', component: SortableComponent },
-      { path: '', redirectTo: 'smooth-dnd', pathMatch: 'full' },
+      { path: '', redirectTo: 'dragula', pathMatch: 'full' },
     ]
   }
 ];
