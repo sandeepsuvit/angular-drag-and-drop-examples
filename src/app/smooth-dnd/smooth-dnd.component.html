@@ -1,6 +1,13 @@
 <div class="mt-2 mb-2 title d-flex align-items-center justify-content-between">
     <h5 class="mb-0">Boards using ngx-smooth-dnd</h5>
+    <div class="controls">
+        <a href="https://github.com/sandeepsuvit/angular-drag-and-drop-examples" class="btn btn-link btn-sm pl-2 pr-2 mr-3">
+            <svg class="feather">
+                <use [attr.xlink:href]="'/assets/feather-sprite.svg#github'" />
+            </svg> View code on github
+        </a>
     <a routerLink="/dragula" class="btn btn-sm btn-info pl-3 pr-3 text-bold">Dragula board</a>
+</div>
 </div>
 <div class="scene">
     <smooth-dnd-container [orientation]="'horizontal'" class="columns" (drop)="onColumnDrop($event)" [dragHandleSelector]="'.column-drag-handle'">
