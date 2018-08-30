@@ -5,7 +5,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-You can find the [Demo](https://peaceful-darwin-1138ee.netlify.com/) here.
+You can find the [Demo](https://angular-drag-and-drop-examples.netlify.com) here.
 
 ## Development server
 
