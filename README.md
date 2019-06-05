@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/47cbbc04-a8b1-498e-ab99-e843e4f593be/deploy-status)](https://app.netlify.com/sites/angular-drag-and-drop-examples/deploys)
+
 # Angular 5+ drag and drop example with dragula and ngx-smooth-dnd
 
 ![Alt text](samples/smooth-dnd.png?raw=true "Smooth dnd scroll")
